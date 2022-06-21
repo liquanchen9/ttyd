@@ -41,11 +41,11 @@ jobs:
         shell: msys2 {0}
         run: |
             cd ./msys2/ttyd
-            pacman -S --noconfirm  binutils 
             sed -i "s/'gcc'/mingw-w64-x86_64-gcc/g" PKGBUILD
             sed -i "s/'cmake'/mingw-w64-x86_64-cmake/g" PKGBUILD
             sed -i "s/'json-c'/mingw-w64-x86_64-json-c/g" PKGBUILD
             sed -i "s/'libwebsockets'/mingw-w64-x86_64-libwebsockets/g" PKGBUILD
+            sed -i "s/'vim'//g" PKGBUILD
             makepkg --noconfirm --noprogressbar --skipchecksums
       - uses: actions/upload-artifact@v2
         with:
