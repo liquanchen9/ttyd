@@ -36,6 +36,7 @@ jobs:
             mingw64/mingw-w64-x86_64-libwebsockets
             git 
             binutils
+            vim
           update: true
       - name: Build ttyd
         shell: msys2 {0}
@@ -45,7 +46,6 @@ jobs:
             sed -i "s/'cmake'/'mingw-w64-x86_64-cmake'/g" PKGBUILD
             sed -i "s/'json-c'/'mingw-w64-x86_64-json-c'/g" PKGBUILD
             sed -i "s/'libwebsockets'/'mingw-w64-x86_64-libwebsockets'/g" PKGBUILD
-            sed -i "s/'vim'//g" PKGBUILD
             sed -i 's/cmake /cmake -G "Unix Makefiles" /g' PKGBUILD
             sed -i 's/  make/  cat makefile \&\& make/g' PKGBUILD
             cat PKGBUILD
