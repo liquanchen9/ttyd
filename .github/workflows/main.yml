@@ -35,8 +35,8 @@ jobs:
       - name: Build ttyd
         shell: msys2 {0}
         run: |
-            pacman -S git binutils
-            pacman -S mingw-w64-i686-cmake
+            pacman -Sy git binutils
+            pacman -Sy mingw-w64-i686-cmake
             cd ./msys2/json-c
             makepkg -s && pacman -U *.pkg.tar.xz
             cd ../libwebsockets
