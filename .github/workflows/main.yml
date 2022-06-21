@@ -17,6 +17,8 @@ jobs:
   win10:
     runs-on: windows-latest
     steps:
+      - name: Avoid line ending issues on Windows
+        run: git config --global core.autocrlf false
       - uses: actions/checkout@v2
         with: 
           ref: 1.5.2
@@ -38,9 +40,8 @@ jobs:
       - name: Build ttyd
         shell: msys2 {0}
         run: |
-            git config --global core.autocrlf true
             cd ./msys2/ttyd
-            makepkg-mingw -sCLfc --noconfirm --noprogressbar --skipchecksums
+            makepkg -sCLfc --noconfirm --noprogressbar --skipchecksums
       - uses: actions/upload-artifact@v2
         with:
           name: ttyd.win10
