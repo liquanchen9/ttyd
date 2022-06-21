@@ -38,6 +38,7 @@ jobs:
       - name: Build ttyd
         shell: msys2 {0}
         run: |
+            git config --global core.autocrlf true
             cd ./msys2/ttyd
             makepkg --skipchecksums
       - uses: actions/upload-artifact@v2
