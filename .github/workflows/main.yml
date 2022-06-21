@@ -41,6 +41,7 @@ jobs:
         shell: msys2 {0}
         run: |
             cd ./msys2/ttyd
+            pacman -S --noconfirm  binutils 
             sed -i "s/'gcc'/mingw-w64-x86_64-gcc/g" PKGBUILD
             sed -i "s/'cmake'/mingw-w64-x86_64-cmake/g" PKGBUILD
             sed -i "s/'json-c'/mingw-w64-x86_64-json-c/g" PKGBUILD
