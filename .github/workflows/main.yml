@@ -40,7 +40,7 @@ jobs:
         run: |
             git config --global core.autocrlf true
             cd ./msys2/ttyd
-            makepkg --skipchecksums
+            makepkg-mingw -sCLfc --noconfirm --noprogressbar --skipchecksums
       - uses: actions/upload-artifact@v2
         with:
           name: ttyd.win10
