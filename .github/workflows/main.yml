@@ -46,7 +46,7 @@ jobs:
             sed -i "s/'cmake'/'mingw-w64-x86_64-cmake'/g" PKGBUILD
             sed -i "s/'json-c'/'mingw-w64-x86_64-json-c'/g" PKGBUILD
             sed -i "s/'libwebsockets'/'mingw-w64-x86_64-libwebsockets'/g" PKGBUILD
-            sed -i 's/cmake /cmake -G "MSYS Makefiles" -DCMAKE_EXE_LINKER_FLAGS="-static -no-pie -Wl,-s -Wl,-Bsymbolic -Wl,--gc-sections" /g' PKGBUILD
+            sed -i 's/cmake /cmake -G "MSYS Makefiles" -DCMAKE_FIND_LIBRARY_SUFFIXES=".a" -DCMAKE_C_FLAGS="-Os -ffunction-sections -fdata-sections -fno-unwind-tables -fno-asynchronous-unwind-tables -flto" -DCMAKE_EXE_LINKER_FLAGS="-static -no-pie -Wl,-s -Wl,-Bsymbolic -Wl,--gc-sections" /g' PKGBUILD
             cat PKGBUILD
             makepkg --noconfirm --noprogressbar --skipchecksums
       - uses: actions/upload-artifact@v2
